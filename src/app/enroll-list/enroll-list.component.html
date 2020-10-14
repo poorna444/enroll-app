@@ -1,0 +1,23 @@
+<div class="container form-horizontal"  *ngIf="enrolls.length > 0">
+    <h2 class="bg-info text-center text-light">All Enrollements</h2>
+    <table class="table table-striped">
+      <thead class="bg-info">
+        <tr class="text-left text-light">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Active</th>
+          <th>DOB</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let each of enrolls">
+          <td>{{each.id}}</td>
+          <td>{{each.name}}</td>
+          <td><button type="button" class="btn btn-success btn-circle" *ngIf="each.active"></button><button *ngIf="!each.active" type="button" class="btn btn-danger btn-circle"></button></td>
+          <td>{{each.dateOfBirth}}</td>
+          <td><a class="btn btn-info" [routerLink]="['/edit-enroll/'+each.id]">EDIT</a></td>
+        </tr>
+       </tbody>
+    </table>
+  </div>
